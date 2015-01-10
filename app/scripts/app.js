@@ -11,7 +11,8 @@
 angular
 .module('myLeaderboardApp', [
   'ngRoute',
-  'restangular'
+  'restangular',
+  'pusher-angular'
 ])
 .config(function ($routeProvider) {
   $routeProvider

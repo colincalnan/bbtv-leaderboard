@@ -1,6 +1,7 @@
 {
   "require": {
     "mikecao/flight": "dev-master",
-    "catfan/medoo": "dev-master"
+    "catfan/medoo": "dev-master",
+    "pusher/pusher-php-server": "2.1.3"
   }
 }

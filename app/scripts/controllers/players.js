@@ -8,8 +8,17 @@
 * Controller of the myLeaderboardApp
 */
 angular.module('myLeaderboardApp')
-.controller('PlayersCtrl', function ($scope, Restangular) {
+.controller('PlayersCtrl', function ($scope, Restangular, $pusher) {
   var Players = Restangular;
+
+  var client = new Pusher('1b1a04b01fb849b1a5ad');
+  var pusher = $pusher(client);
+  var channel = pusher.subscribe('test_channel');
+  channel.bind('my_event',
+    function(data) {
+    refreshPlayers();
+    }
+  );
 
   var refreshPlayers = function() {
     Players.all('players').getList().then(function(data) {
