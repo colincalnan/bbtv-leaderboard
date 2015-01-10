@@ -24,6 +24,9 @@ angular.module('myLeaderboardApp')
     Players.all('players').getList().then(function(data) {
       console.log('--> rest/players called from refreshPlayers()');
       $scope.players = data;
+      angular.forEach($scope.players, function (player) {
+        player.points = parseFloat(player.points);
+      });
       console.dir($scope.players);
     });
   };
