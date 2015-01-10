@@ -9,8 +9,10 @@
 */
 angular.module('myLeaderboardApp')
 .controller('PlayersCtrl', function ($scope, Restangular, $pusher) {
+
   var Players = Restangular;
 
+  // Pusher
   var client = new Pusher('1b1a04b01fb849b1a5ad');
   var pusher = $pusher(client);
   var channel = pusher.subscribe('test_channel');
@@ -20,22 +22,31 @@ angular.module('myLeaderboardApp')
     }
   );
 
+  /**
+   * Function to refresh players list after actions
+   */
   var refreshPlayers = function() {
     Players.all('players').getList().then(function(data) {
-      console.log('--> rest/players called from refreshPlayers()');
       $scope.players = data;
       angular.forEach($scope.players, function (player) {
         player.points = parseFloat(player.points);
       });
-      console.dir($scope.players);
+      console.dir($scope.selected);
     });
   };
 
+  /**
+   * Function to highlight a player
+   */
   $scope.selectPlayer = function(player, index) {
-    $scope.selected = index;
+    $scope.selected = player.id;
+    console.dir($scope.selected);
     $scope.player = player;
   };
 
+  /**
+   * Function to update a player - call the REST service
+   */
   $scope.updatePlayer = function() {
     Players.all('players').getList().then(function(data){
       var player = data.one($scope.player.id);
@@ -47,5 +58,6 @@ angular.module('myLeaderboardApp')
     });
   }
 
+  // Refresh on load
   refreshPlayers();
 });

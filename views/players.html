@@ -1,5 +1,5 @@
 <div class="leaderboard" ng-repeat="player in players | orderBy: '-points'">
-  <div class="player" ng-click="selectPlayer(player,$index)" ng-class="{selected: $index == selected}">
+  <div class="player" ng-click="selectPlayer(player,$index)" ng-class="{selected: player.id == selected}">
     <span class="name">{{player.name}}</span>
     <span class="score">{{player.points}}</span>
   </div>
