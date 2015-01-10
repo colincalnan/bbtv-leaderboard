@@ -19,6 +19,13 @@ Rename the ```vendor/db-sample.php``` file.
     mv vendor/db-sample.php vendor/db.php
 
 ## Developer's notes
+
+### Tools/Frameworks used
+* [Flight - Lightweight PHP framework](http://flightphp.com/)
+* [Medoo - PHP Database framework](http://medoo.in/)
+* Angular JS
+* [Pusher](http://pusher.com)
+
 I started off wanting to use Laravel to do this but I couldn't wait for Composer to run, it was taking over 45 minutes, and Googling this suggested some fixes, but I decided not to go down that rabbit hole. So I decided to simplify and used Flight with Medoo, to help simplify the REST side of things.
 
 I'm using Angular on the front end. I also realize now that I'm running the REST request and using MySQL to increase the count, which results in a bit of lag when you click. It would be better if the value was incremented on the front end and passed to the backend.
