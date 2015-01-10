@@ -1,0 +1,6 @@
+<div class="leaderboard" ng-repeat="player in players">
+  <div class="player" ng-click="selectPlayer(player,$index)" ng-class="{selected: $index == selected}">
+    <span class="name">{{player.name}}</span>
+    <span class="score">{{player.points}}</span>
+  </div>
+</div>
