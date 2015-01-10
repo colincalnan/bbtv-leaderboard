@@ -31,7 +31,6 @@ angular.module('myLeaderboardApp')
       angular.forEach($scope.players, function (player) {
         player.points = parseFloat(player.points);
       });
-      console.dir($scope.selected);
     });
   };
 
@@ -40,7 +39,6 @@ angular.module('myLeaderboardApp')
    */
   $scope.selectPlayer = function(player, index) {
     $scope.selected = player.id;
-    console.dir($scope.selected);
     $scope.player = player;
   };
 
