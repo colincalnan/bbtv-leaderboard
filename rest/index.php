@@ -33,10 +33,9 @@ function getPlayer($id) {
   }
 }
 
-function updatePlayer() {
+function updatePlayer($id) {
   try {
     $database = getConnection();
-    $id = Flight::request()->query['id'];
     $player = $database
       ->update("players", ["points[+]" => 5], ["id[=]" => $id]);
   } catch(Exception $e) {
