@@ -1,3 +1,5 @@
+# PHP 5.4 REQUIRED
+
 # How to install
 ##Clone this repository
 
