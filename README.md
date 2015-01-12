@@ -20,6 +20,8 @@ Rename the ```vendor/db-sample.php``` file.
 
     mv vendor/db-sample.php vendor/db.php
 
+The edit that file to set up your database connection credentials correctly.
+
 ## Developer's notes
 
 ### Tools/Frameworks used
